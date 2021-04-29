@@ -1,0 +1,29 @@
+{
+  "name": "virtualtabletopbackend",
+  "version": "1.0.0",
+  "description": "Blank Is a virtual table top where you can meetup with your friends and table top games. You will be able to roll dice and create characters. 1 person will be allowed to create a game and the other players are allowed to join it. Players can move their pieces around on the screen and can roll dice and edit their player sheets.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiddySmooth/VirtualTableTopBackEnd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DiddySmooth/VirtualTableTopBackEnd/issues"
+  },
+  "homepage": "https://github.com/DiddySmooth/VirtualTableTopBackEnd#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.6.0",
+    "rowdy-logger": "^1.0.2",
+    "sequelize": "^6.6.2"
+  }
+}

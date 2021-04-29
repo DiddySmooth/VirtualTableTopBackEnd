@@ -1,0 +1,3 @@
+sequelize model:generate --name users --attributes username:string,email:string,password:string
+sequelize model:generate --name chat --attributes body:string,userId:INTEGER,gameId:INTEGER
+sequelize model:generate --name game --attributes title:string,password:string,userId:INTEGER
