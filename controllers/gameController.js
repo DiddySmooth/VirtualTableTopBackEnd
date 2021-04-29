@@ -11,8 +11,8 @@ gameController.create = async (req,res) => {
         const decryptedId = await jwt.verify(encryptedId, process.env.JWT_SECRET)
 
         let game = await model.game.create({
-            title: req.body.title,
-            password: req.body.password,
+            title: req.body.body.title,
+            password: req.body.body.password,
             userId: decryptedId.userId
         })
         console.log(req.headers)
@@ -32,14 +32,15 @@ gameController.create = async (req,res) => {
 
 gameController.login = async (req,res) => {
     try {
+        console.log(req.body.body)
         let game = await model.game.findOne({
             where: {
-                title: req.body.title 
+                title: req.body.body.title 
             }
         })
         const encryptedId = jwt.sign({gameId: game.id}, process.env.JWT_SECRET)
-
-        if(game.password === req.body.password) {
+        console.log(game)
+        if(game.password === req.body.body.password) {
             res.json({
                 game,
                 encryptedId
