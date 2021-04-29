@@ -1,4 +1,4 @@
-# Welcome to StackEdit!
+# VTT
 
 Blank Is a virtual table top where you can meetup with your friends and table top games. You will be able to roll dice and create characters. 1 person will be allowed to create a game and the other players are allowed to join it.
 Players can move their pieces around on the screen and can roll dice and edit their player sheets.
