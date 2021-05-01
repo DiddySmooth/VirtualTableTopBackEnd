@@ -12,6 +12,7 @@ chatController.create = async (req,res) => {
         console.log(decryptedId, decryptedGameId)
         let chat = await model.chat.create({
             body: req.body.body.body,
+            author: req.body.body.author,
             userId: decryptedId.userId,
             gameId: decryptedGameId.gameId
         })
