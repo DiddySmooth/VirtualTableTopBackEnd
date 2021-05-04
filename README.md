@@ -39,6 +39,14 @@ Players can move their pieces around on the screen and can roll dice and edit th
 
 <img src="https://i.imgur.com/ee4CzFx.png"/>
 
+### v2
+
+<img src="https://i.imgur.com/y05BhO0.png"/>
+
+### v3
+
+<img src="https://i.imgur.com/hzcwqvQ.png"/>
+
 ## MVP Checklist
 - REGISTER
 - LOGIN
