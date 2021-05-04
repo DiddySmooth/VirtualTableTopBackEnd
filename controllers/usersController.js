@@ -7,7 +7,8 @@ userController.create = async (req,res) => {
         let user = await model.users.create({
             username: req.body.username,
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
+            picture: req.body.picture
         })
         const encryptedId = jwt.sign({userId: user.id}, process.env.JWT_SECRET)
         res.json({
@@ -49,9 +50,12 @@ userController.login = async (req,res) => {
 }
 
 userController.getInfo = async (req, res) => {
+    console.log(req.headers.authorization, "--------------------------------")
     try{
+        
         const encryptedId = req.headers.authorization
         const decryptedId = await jwt.verify(encryptedId, process.env.JWT_SECRET)
+        console.log(decryptedId)
         const user = await model.users.findOne({
             where: {
                 id: decryptedId.userId
@@ -63,6 +67,7 @@ userController.getInfo = async (req, res) => {
         })    
     }
     catch (error) {
+        console.log("----------------------",error)
         res.json({
             error
         })
