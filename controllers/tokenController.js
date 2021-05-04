@@ -24,6 +24,7 @@ tokenController.create = async (req,res) => {
 }
 
 tokenController.move = async (req,res) => {
+    console.log(req.body)
     try {
         const encryptedGameId = req.body.gameId
         const decryptedGameId = await jwt.verify(encryptedGameId, process.env.JWT_SECRET)
@@ -34,9 +35,14 @@ tokenController.move = async (req,res) => {
                 gameId: decryptedGameId.gameId
             }
         })
-        let res = await foundToken.update(req.body)
+        let res = await foundToken.update({
+            name: req.body.name,
+            x: req.body.x,
+            y: req.body.y
+        })
         res.json({res})
     } catch (error) {
+        console.log(error)
         res.json({error})
     }
 }
