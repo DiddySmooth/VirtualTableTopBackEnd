@@ -17,6 +17,9 @@ app.listen(PORT, () => {
 const userRouter = require('./route/userRoutes')
 const gameRouter = require('./route/gameRoutes')
 const chatRouter = require('./route/chatRoutes')
+const tokenRouter = require('./route/tokenRoutes')
+
 app.use('/user', userRouter)
 app.use('/game', gameRouter)
 app.use('/chat', chatRouter)
+app.use('/token', tokenRouter)
