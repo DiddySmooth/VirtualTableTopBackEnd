@@ -2,6 +2,9 @@ const model = require('../models')
 const jwt = require('jsonwebtoken')
 const chatController = {}
 
+
+
+
 chatController.create = async (req,res) => {
     try {
         const encryptedId = req.body.headers.authorization
