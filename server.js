@@ -52,5 +52,8 @@ io.on('connection', function (socket) {
     socket.on("disconnect", function () {
         console.log("disconnect")
     })
+    socket.on("refreshBoard", function () {
+        io.sockets.in(roomId).emit("refreshBoard")
+    })
 
 });
