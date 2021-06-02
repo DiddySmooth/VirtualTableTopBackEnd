@@ -38,8 +38,19 @@ app.use('/chat', chatRouter)
 app.use('/token', tokenRouter)
 
 io.on('connection', function (socket) {
-    console.log("connected@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")    
-    socket.on('chat', function (game) {
-        console.log(game)
+   let roomId;
+    socket.on('Message', function (game) {
+        io.sockets.in(roomId).emit("refreshChat")
     })
+
+    socket.on("room", function (roomNumber) {
+        roomId = roomNumber
+        socket.join(roomId)
+        io.sockets.in(roomId).emit("refreshUserBar")
+    })
+
+    socket.on("disconnect", function () {
+        console.log("disconnect")
+    })
+
 });
