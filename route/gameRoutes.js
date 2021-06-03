@@ -10,4 +10,6 @@ gameRouter.get('/getinfo', gameController.getInfo)
 gameRouter.get('/authcheck', gameController.authCheck)
 gameRouter.post('/userlogin', gameController.findOrCreateRecord)
 gameRouter.get('/gameusers', gameController.findAllUsers)
+gameRouter.put('/logout', gameController.logout)
+gameRouter.put('/login', gameController.loginFast)
 module.exports = gameRouter

@@ -3,8 +3,7 @@ const jwt = require('jsonwebtoken')
 const chatController = {}
 
 
-
-
+///// Called Whenever someone sends a chat message /////
 chatController.create = async (req,res) => {
     try {
         const encryptedId = req.body.headers.authorization
@@ -23,13 +22,14 @@ chatController.create = async (req,res) => {
             chat: chat
         })
     } catch (error) {
-        console.log(error)
+        console.log("🚀 ~ file: chatController.js ~ line 28 ~ chatController.create= ~ error", error)
         res.json({
             error
         })
     }
 }
 
+///// used to populate chat /////
 chatController.getall = async (req, res) => {
 
     try{
@@ -41,12 +41,12 @@ chatController.getall = async (req, res) => {
                 gameId: decryptedId.gameId
             }
         })
-       
         res.json({
             chats: chats
         })    
     }
     catch (error) {
+    console.log("🚀 ~ file: chatController.js ~ line 49 ~ chatController.getall= ~ error", error)
         res.json({
             error
         })

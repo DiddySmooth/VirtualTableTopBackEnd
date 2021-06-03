@@ -37,6 +37,9 @@ app.use('/game', gameRouter)
 app.use('/chat', chatRouter)
 app.use('/token', tokenRouter)
 
+
+////SOCKET LOGIC /////
+// split this into controller later //
 io.on('connection', function (socket) {
    let roomId;
     socket.on('Message', function (game) {
@@ -46,7 +49,6 @@ io.on('connection', function (socket) {
     socket.on("room", function (roomNumber) {
         roomId = roomNumber
         socket.join(roomId)
-        io.sockets.in(roomId).emit("refreshUserBar")
     })
 
     socket.on("disconnect", function () {
@@ -54,6 +56,9 @@ io.on('connection', function (socket) {
     })
     socket.on("refreshBoard", function () {
         io.sockets.in(roomId).emit("refreshBoard")
+    }) 
+    socket.on("refreshUserBar", function () {
+        io.sockets.in(roomId).emit("refreshUserBar")
     })
 
 });

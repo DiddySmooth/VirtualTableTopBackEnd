@@ -2,6 +2,7 @@ const model = require('../models')
 const jwt = require('jsonwebtoken')
 const userController = {}
 
+///// Creates user in database /////
 userController.create = async (req,res) => {
     try {
         let user = await model.users.create({
@@ -17,13 +18,15 @@ userController.create = async (req,res) => {
             userId: encryptedId,
         })
     } catch (error) {
+
+
         console.log(error)
         res.json({
             error
         })
     }
 }
-
+///// Allows user to login to database /////
 userController.login = async (req,res) => {
     try {
         let user = await model.users.findOne({
@@ -49,8 +52,8 @@ userController.login = async (req,res) => {
     }
 }
 
+///// used to get user info on page reload /////
 userController.getInfo = async (req, res) => {
-    console.log(req.headers.authorization, "--------------------------------")
     try{
         
         const encryptedId = req.headers.authorization
@@ -67,12 +70,13 @@ userController.getInfo = async (req, res) => {
         })    
     }
     catch (error) {
-        console.log("----------------------",error)
+    console.log("🚀 ~ file: usersController.js ~ line 73 ~ userController.getInfo= ~ error", error)
         res.json({
             error
         })
     }
 }
+//// used to confirm that users local storage id is a real account /////
 userController.authCheck = async (req,res) => {
     try {
         const encryptedId = req.headers.authorization
@@ -84,6 +88,7 @@ userController.authCheck = async (req,res) => {
     })
     res.json({user: user.id})
     } catch (error) {
+    console.log("🚀 ~ file: usersController.js ~ line 91 ~ userController.authCheck= ~ error", error)
         res.json({message: 'not verified'})
     }
 }
